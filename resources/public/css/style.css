@@ -1,0 +1,19 @@
+ul {
+    list-style-type: none
+}
+
+.pbar-ok {
+    color: #3c763d;
+    background-color: #dff0d8
+}
+
+.pbar-not-ok {
+    color: #a94442;
+    background-color: #f2dede
+}
+
+.pbar-so-so {
+    color: #ea6b00;
+    background-color: #ffecdc
+}
+
