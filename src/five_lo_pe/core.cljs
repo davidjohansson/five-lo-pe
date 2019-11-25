@@ -6,6 +6,54 @@
 
 (enable-console-print!)
 
+(def data {:team {
+                  :name    "5 med lotta och peter"
+                  :periods [
+                            {
+                             :start                    "2019-01-01"
+                             :end                      "2019-09-01"
+                             :requiredDaysInPeriodPart 5
+                             :parts                    [
+                                                        {
+                                                         :start   "2019-01-01"
+                                                         :end     "2019-01-07"
+                                                         :results [{
+                                                                    :name       "Peter"
+                                                                    :activities '(
+                                                                                  {
+                                                                                   :date "2019-01-01"
+                                                                                   :note "Löpning 8 km"
+                                                                                   })
+                                                                    }
+                                                                   {
+                                                                    :name       "Lotta"
+                                                                    :activities '(
+                                                                                  {
+                                                                                   :date "2019-01-01"
+                                                                                   :note "Löpning 8 km"
+                                                                                   })
+                                                                    }
+                                                                   {
+                                                                    :name       "David"
+                                                                    :activities '(
+                                                                                  {
+                                                                                   :date "2019-01-01"
+                                                                                   :note "Löpning 8 km"
+                                                                                   })
+                                                                    }
+                                                                   ]
+                                                         }
+                                                        ]
+                             }
+                            ]
+                  }
+           }
+  )
+
+(defn progressInPercent [doneInPeriodPart periodPartLength]
+  (* 100 (/ doneInPeriodPart periodPartLength))
+  )
+
 (defn statusFromProgress [progress]
   (if (< progress 25)
     "pbar-not-ok"
@@ -16,18 +64,19 @@
     )
   )
 
-(defn personScore [name progress]
-
+(defn personScore [name doneInPeriodPart periodPartLength]
+  (def progress (progressInPercent doneInPeriodPart periodPartLength))
   [h-box :width "200px" :justify :around
    :children [name
               [progress-bar :model progress :style {:width "150px"} :bar-class (statusFromProgress progress)]
               ]])
 
 (defn score []
+  (println {:team data})
   [:ul
-   [:li [personScore "Peter" 33]]
-   [:li [personScore "Lotta" 68]]
-   [:li [personScore "David" 12]]]
+   [:li [personScore "Peter" 1 5]]
+   [:li [personScore "Lotta" 2 5]]
+   [:li [personScore "David" 5 5]]]
   )
 
 (defn hello-world []
