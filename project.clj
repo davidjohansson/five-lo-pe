@@ -25,14 +25,14 @@
                 ;; The presence of a :figwheel configuration here
                 ;; will cause figwheel to inject the figwheel client
                 ;; into your build
-                :figwheel {:on-jsload "hello-world.core/on-js-reload"
+                :figwheel {:on-jsload "five-lo-pe.core/on-js-reload"
                            ;; :open-urls will pop open your application
                            ;; in the default browser once Figwheel has
                            ;; started and compiled your application.
                            ;; Comment this out once it no longer serves you.
                            :open-urls ["http://localhost:3449/index.html"]}
 
-                :compiler {:main hello-world.core
+                :compiler {:main five-lo-pe.core
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/five_lo_pe.js"
                            :output-dir "resources/public/js/compiled/out"
@@ -46,7 +46,7 @@
                {:id "min"
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/five_lo_pe.js"
-                           :main hello-world.core
+                           :main five-lo-pe.core
                            :optimizations :advanced
                            :pretty-print false}}]}
 

@@ -1,4 +1,4 @@
-(ns hello-world.core
+(ns five-lo-pe.core
   (:require
     [reagent.core :as reagent]
     [re-com.core :refer [button label progress-bar box v-box h-box]]
