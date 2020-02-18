@@ -1,4 +1,4 @@
-(ns five_lo_pe.tests
+(ns five-lo-pe.lib
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
 
 
